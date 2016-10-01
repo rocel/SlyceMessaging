@@ -81,6 +81,7 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
     private int startHereWhenUpdate;
     private long recentUpdatedTime;
     private boolean moreMessagesExist;
+    private boolean autoAdd = true; // default
 
     public void setPictureButtonVisible(final boolean bool) {
         if (getActivity() != null)
@@ -91,6 +92,10 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
                     imageView.setVisibility(bool ? View.VISIBLE : View.GONE);
                 }
             });
+    }
+
+    public void setAutoAddMessage(final boolean add) {
+        this.autoAdd = add;
     }
 
     private void addSpinner() {
@@ -190,7 +195,7 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
         mMessages = new ArrayList<>();
         mMessageItems = new ArrayList<>();
         mRecyclerAdapter = new MessageRecyclerAdapter(mMessageItems, customSettings);
-        mLinearLayoutManager = new LinearLayoutManager(this.getActivity().getApplicationContext()){
+        mLinearLayoutManager = new LinearLayoutManager(this.getActivity().getApplicationContext()) {
             @Override
             public boolean canScrollVertically() {
                 return !mRefresher.isRefreshing();
@@ -229,8 +234,8 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
 
         if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
                 Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
-                        ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+                ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 232);
 
         return rootView;
@@ -261,14 +266,14 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
     }
 
     private void startLoadMoreMessagesListener() {
-        if (Build.VERSION.SDK_INT >= 23)
+        if (Build.VERSION.SDK_INT >= 23) {
             mRecyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(View view, int i, int i1, int i2, int i3) {
                     loadMoreMessagesIfNecessary();
                 }
             });
-        else
+        } else {
             mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -276,6 +281,7 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
                     loadMoreMessagesIfNecessary();
                 }
             });
+        }
     }
 
     private void loadMoreMessagesIfNecessary() {
@@ -314,8 +320,9 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
                     Message message = messages.get(i);
                     mMessages.add(0, message);
                 }
-                if (spinnerExists && moreMessagesExist)
+                if (spinnerExists && moreMessagesExist){
                     mMessages.add(0, new SpinnerMessage());
+                }
                 mRefresher.setIsRefreshing(false);
                 replaceMessages(mMessages, upTo);
             }
@@ -377,7 +384,7 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
             Intent pickPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             pickPhotoIntent.setType("image/*");
             Intent chooserIntent = Intent.createChooser(pickPhotoIntent, "Take a photo or select one from your device");
-            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {takePhotoIntent});
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{takePhotoIntent});
             try {
                 startActivityForResult(chooserIntent, 1);
             } catch (RuntimeException exception) {
@@ -425,8 +432,9 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
                 message.setUserId(this.defaultUserId);
                 addNewMessage(message);
                 ScrollUtils.scrollToBottomAfterDelay(mRecyclerView, mRecyclerAdapter);
-                if (listener != null)
+                if (listener != null) {
                     listener.onUserSendsMediaMessage(selectedImageUri);
+                }
             }
         } catch (RuntimeException exception) {
             Log.d("debug", exception.getMessage());
@@ -448,10 +456,14 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
         message.setDisplayName(defaultDisplayName);
         message.setText(text);
         message.setUserId(defaultUserId);
-        addNewMessage(message);
+
+        if(autoAdd) {
+            addNewMessage(message);
+        }
 
         ScrollUtils.scrollToBottomAfterDelay(mRecyclerView, mRecyclerAdapter);
-        if (listener != null)
-            listener.onUserSendsTextMessage(message.getText());
+        if (listener != null) {
+            listener.onUserSendsTextMessage(message);
+        }
     }
 }
