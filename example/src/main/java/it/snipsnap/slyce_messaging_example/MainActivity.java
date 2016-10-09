@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
         }
         message.setDate(new Date().getTime());
         if (Math.random() > 0.5) {
-            message.setAvatarUrl("https://lh3.googleusercontent.com/-Y86IN-vEObo/AAAAAAAAAAI/AAAAAAAKyAM/6bec6LqLXXA/s0-c-k-no-ns/photo.jpg");
+            //message.setAvatarUrl("https://lh3.googleusercontent.com/-Y86IN-vEObo/AAAAAAAAAAI/AAAAAAAKyAM/6bec6LqLXXA/s0-c-k-no-ns/photo.jpg");
             message.setUserId("LP");
             message.setSource(MessageSource.EXTERNAL_USER);
         } else {
-            message.setAvatarUrl("https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/10989174_799389040149643_722795835011402620_n.jpg?oh=bff552835c414974cc446043ac3c70ca&oe=580717A5");
+            //message.setAvatarUrl("https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/10989174_799389040149643_722795835011402620_n.jpg?oh=bff552835c414974cc446043ac3c70ca&oe=580717A5");
             message.setUserId("MP");
             message.setSource(MessageSource.LOCAL_USER);
         }
@@ -150,14 +150,15 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 TextMessage textMessage = new TextMessage();
                 textMessage.setText("Another message...");
-                textMessage.setAvatarUrl("https://lh3.googleusercontent.com/-Y86IN-vEObo/AAAAAAAAAAI/AAAAAAAKyAM/6bec6LqLXXA/s0-c-k-no-ns/photo.jpg");
+                //textMessage.setAvatarUrl("https://lh3.googleusercontent.com/-Y86IN-vEObo/AAAAAAAAAAI/AAAAAAAKyAM/6bec6LqLXXA/s0-c-k-no-ns/photo.jpg");
                 textMessage.setDisplayName("Gary Johnson");
                 textMessage.setUserId("LP");
+                textMessage.setInitials("LP");
                 textMessage.setDate(new Date().getTime());
                 textMessage.setSource(MessageSource.EXTERNAL_USER);
                 slyceMessagingFragment.addNewMessage(textMessage);
             }
-        }, 3, 3, TimeUnit.SECONDS);
+        }, 3, 30, TimeUnit.SECONDS);
     }
 
 
