@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         slyceMessagingFragment.setDefaultDisplayName("Matthew Page");
         slyceMessagingFragment.setDefaultUserId("uhtnaeohnuoenhaeuonthhntouaetnheuontheuo");
         slyceMessagingFragment.setAutoAddMessage(false);
-
+        slyceMessagingFragment.setStyle(R.style.ChatTheme);
         slyceMessagingFragment.setOnSendMessageListener(new UserSendsMessageListener() {
             @Override
             public void onUserSendsTextMessage(TextMessage msg) {

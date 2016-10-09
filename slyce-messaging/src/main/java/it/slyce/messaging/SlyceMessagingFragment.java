@@ -146,7 +146,11 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
     public void setStyle(int style) {
         TypedArray ta = getActivity().obtainStyledAttributes(style, R.styleable.SlyceMessagingTheme);
         this.customSettings.backgroudColor = ta.getColor(R.styleable.SlyceMessagingTheme_backgroundColor, Color.GRAY);
+        this.customSettings.backgroudDrawable = ta.getResourceId(R.styleable.SlyceMessagingTheme_backgroundDrawable, -1);
         rootView.setBackgroundColor(this.customSettings.backgroudColor); // the background color
+        if(this.customSettings.backgroudDrawable > -1) {
+            rootView.setBackground(ContextCompat.getDrawable(getActivity(), this.customSettings.backgroudDrawable)); // the background drawable
+        }
         this.customSettings.timestampColor = ta.getColor(R.styleable.SlyceMessagingTheme_timestampTextColor, Color.BLACK);
         this.customSettings.externalBubbleTextColor = ta.getColor(R.styleable.SlyceMessagingTheme_externalBubbleTextColor, Color.WHITE);
         this.customSettings.externalBubbleBackgroundColor = ta.getColor(R.styleable.SlyceMessagingTheme_externalBubbleBackground, Color.WHITE);
@@ -320,7 +324,7 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
                     Message message = messages.get(i);
                     mMessages.add(0, message);
                 }
-                if (spinnerExists && moreMessagesExist){
+                if (spinnerExists && moreMessagesExist) {
                     mMessages.add(0, new SpinnerMessage());
                 }
                 mRefresher.setIsRefreshing(false);
@@ -457,7 +461,7 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
         message.setText(text);
         message.setUserId(defaultUserId);
 
-        if(autoAdd) {
+        if (autoAdd) {
             addNewMessage(message);
         }
 

@@ -33,6 +33,7 @@
 
     <declare-styleable name="SlyceMessagingTheme">
         <attr name="backgroundColor" format="color"/>
+        <attr name="backgroundDrawable" format="reference"/>
         <attr name="timestampTextColor" format="color"/>
         <attr name="localBubbleBackground" format="color"/>
         <attr name="localBubbleTextColor" format="color"/>

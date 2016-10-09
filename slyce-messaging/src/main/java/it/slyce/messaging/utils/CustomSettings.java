@@ -7,6 +7,7 @@ import it.slyce.messaging.listeners.UserClicksAvatarPictureListener;
  */
 public class CustomSettings {
     public int backgroudColor;
+    public int backgroudDrawable;
     public int timestampColor;
     public int localBubbleBackgroundColor;
     public int localBubbleTextColor;
