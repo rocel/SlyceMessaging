@@ -16,7 +16,7 @@
         android:layout_marginLeft="16dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/shape_oval_navy">
+        android:background="@drawable/shape_oval_grey">
 
         <it.slyce.messaging.view.text.FontTextView
             android:id="@+id/message_user_text_text_view_initials"
