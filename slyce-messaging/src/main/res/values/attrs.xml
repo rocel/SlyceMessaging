@@ -36,10 +36,8 @@
         <attr name="backgroundDrawable" format="reference"/>
         <attr name="timestampTextColor" format="color"/>
         <attr name="localBubbleBackground" format="color"/>
-        <attr name="localInitialBackground" format="color"/>
         <attr name="localBubbleTextColor" format="color"/>
         <attr name="externalBubbleBackground" format="color"/>
-        <attr name="externalInitialBackground" format="color"/>
         <attr name="externalBubbleTextColor" format="color"/>
         <attr name="snackbarBackground" format="color"/>
         <attr name="snackbarTitleColor" format="color"/>

@@ -36,7 +36,5 @@ public class MessageExternalUserTextViewHolder extends MessageTextViewHolder {
         carrot.setColorFilter(customSettings.externalBubbleBackgroundColor);
         text.setTextColor(customSettings.externalBubbleTextColor);
         timestamp.setTextColor(customSettings.timestampColor);
-
-        initials.setBackgroundColor(customSettings.externalInitialBackgroundColor);
     }
 }
