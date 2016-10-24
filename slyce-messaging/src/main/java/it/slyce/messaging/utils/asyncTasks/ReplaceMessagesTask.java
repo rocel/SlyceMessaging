@@ -2,6 +2,7 @@ package it.slyce.messaging.utils.asyncTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
@@ -15,13 +16,15 @@ public class ReplaceMessagesTask extends AsyncTask {
     private List<Message> mMessages;
     private List<MessageItem> mMessageItems;
     private MessageRecyclerAdapter mRecyclerAdapter;
+    private RecyclerView mRecyclerView;
     private Context context;
     private Refresher mRefresher;
     private int upTo;
 
-    public ReplaceMessagesTask(List<Message> messages, List<MessageItem> messageitems, MessageRecyclerAdapter mRecyclerAdapter, Context context, Refresher refresher, int upTo) {
+    public ReplaceMessagesTask(List<Message> messages, List<MessageItem> messageitems,RecyclerView recyclerView,  MessageRecyclerAdapter mRecyclerAdapter, Context context, Refresher refresher, int upTo) {
         this.mMessages = messages;
         this.mRecyclerAdapter = mRecyclerAdapter;
+        this.mRecyclerView = recyclerView;
         this.upTo = upTo;
         this.mRefresher = refresher;
         this.mMessageItems = messageitems;
@@ -70,5 +73,6 @@ public class ReplaceMessagesTask extends AsyncTask {
         }
 
         mRefresher.setIsRefreshing(false);
+        mRecyclerView.scrollToPosition(mRecyclerAdapter.getItemCount() - 1);
     }
 }

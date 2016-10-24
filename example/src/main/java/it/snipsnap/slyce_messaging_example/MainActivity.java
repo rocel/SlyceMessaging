@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 textMessage.setSource(MessageSource.EXTERNAL_USER);
                 slyceMessagingFragment.addNewMessage(textMessage);
             }
-        }, 3, 30, TimeUnit.SECONDS);
+        }, 3, 3, TimeUnit.SECONDS);
     }
 
 

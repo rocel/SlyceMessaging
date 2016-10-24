@@ -339,7 +339,7 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
 
     private void replaceMessages(List<Message> messages, int upTo) {
         if (getActivity() != null) {
-            new ReplaceMessagesTask(messages, mMessageItems, mRecyclerAdapter, getActivity().getApplicationContext(), mRefresher, upTo).execute();
+            new ReplaceMessagesTask(messages, mMessageItems, mRecyclerView, mRecyclerAdapter, getActivity().getApplicationContext(), mRefresher, upTo).execute();
         }
     }
 
