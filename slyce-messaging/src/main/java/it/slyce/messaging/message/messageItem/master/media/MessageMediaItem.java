@@ -74,7 +74,8 @@ public abstract class MessageMediaItem extends MessageItem {
             messageMediaViewHolder.avatarContainer.setVisibility(isFirstConsecutiveMessageFromSource ? View.VISIBLE : View.INVISIBLE);
             messageMediaViewHolder.initials.setVisibility(isFirstConsecutiveMessageFromSource && TextUtils.isEmpty(avatarUrl) ? View.VISIBLE : View.GONE);
             messageMediaViewHolder.media.setVisibility(!TextUtils.isEmpty(mediaUrl) ? View.VISIBLE : View.INVISIBLE);
-            messageMediaViewHolder.timestamp.setVisibility(isLastConsecutiveMessageFromSource ? View.VISIBLE : View.GONE);
+
+            messageMediaViewHolder.timestamp.setVisibility(messageMediaViewHolder.customSettings.forceShowDate || isLastConsecutiveMessageFromSource ? View.VISIBLE : View.GONE);
         }
     }
 

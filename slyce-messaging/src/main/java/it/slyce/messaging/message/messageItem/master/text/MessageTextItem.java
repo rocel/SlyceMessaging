@@ -79,7 +79,7 @@ public class MessageTextItem extends MessageItem {
             messageTextViewHolder.avatarContainer.setVisibility(isFirstConsecutiveMessageFromSource ? View.VISIBLE : View.INVISIBLE);
             messageTextViewHolder.carrot.setVisibility(isFirstConsecutiveMessageFromSource ? View.VISIBLE : View.INVISIBLE);
             messageTextViewHolder.initials.setVisibility(isFirstConsecutiveMessageFromSource && TextUtils.isEmpty(avatarUrl) ? View.VISIBLE : View.GONE);
-            messageTextViewHolder.timestamp.setVisibility(isLastConsecutiveMessageFromSource ? View.VISIBLE : View.GONE);
+            messageTextViewHolder.timestamp.setVisibility(messageTextViewHolder.customSettings.forceShowDate || isLastConsecutiveMessageFromSource ? View.VISIBLE : View.GONE);
         }
     }
 

@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         slyceMessagingFragment.setDefaultUserId("uhtnaeohnuoenhaeuonthhntouaetnheuontheuo");
         slyceMessagingFragment.setAutoAddMessage(false);
         slyceMessagingFragment.setStyle(R.style.ChatTheme);
+        slyceMessagingFragment.forceShowDate(true);
         slyceMessagingFragment.setOnSendMessageListener(new UserSendsMessageListener() {
             @Override
             public void onUserSendsTextMessage(TextMessage msg) {

@@ -166,6 +166,10 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
         new AddNewMessageTask(messages, mMessageItems, mRecyclerAdapter, mRecyclerView, getActivity().getApplicationContext(), customSettings).execute();
     }
 
+    public void forceShowDate(boolean forceShowDate) {
+        this.customSettings.forceShowDate = forceShowDate;
+    }
+
     public void addNewMessage(Message message) {
         List<Message> messages = new ArrayList<>();
         messages.add(message);
