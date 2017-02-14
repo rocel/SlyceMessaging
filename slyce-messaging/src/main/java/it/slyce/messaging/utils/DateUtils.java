@@ -3,6 +3,8 @@ package it.slyce.messaging.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import it.slyce.messaging.R;
+
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,6 +12,11 @@ import java.util.Date;
  * Created by matthewpage on 6/27/16.
  */
 public class DateUtils {
+
+    public static String getSimpleTimestamp(long then) {
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        return df.format(then);
+    }
 
     public static String getTimestamp(Context context, long then) {
         long now = System.currentTimeMillis();
