@@ -2,6 +2,7 @@ package it.slyce.messaging.message.messageItem.internalUser.text;
 
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import it.slyce.messaging.R;
 import it.slyce.messaging.utils.CustomSettings;
 import it.slyce.messaging.message.messageItem.master.text.MessageTextViewHolder;
+import it.slyce.messaging.utils.ShapeUtils;
 
 /**
  * Created by John C. Hunchar on 5/12/16.
@@ -27,6 +30,11 @@ public class MessageInternalUserTextViewHolder extends MessageTextViewHolder {
         text = (TextView) itemView.findViewById(R.id.message_user_text_text_view_text);
         timestamp = (TextView) itemView.findViewById(R.id.message_user_text_text_view_timestamp);
         avatarContainer = (ViewGroup) itemView.findViewById(R.id.message_user_text_view_group_avatar);
+        initialsBackground = (CircleImageView) itemView.findViewById(R.id.message_user_text_image_view_avatar);
+        if(customSettings.localBubbleBackgroundColor != 0) {
+            ShapeDrawable circle = ShapeUtils.getCircle(itemView.getContext(), customSettings.localInitialBackgroundColor);
+            avatarContainer.setBackground(circle);
+        }
         bubble = (FrameLayout) itemView.findViewById(R.id.message_user_text_view_group_bubble);
 
         Drawable drawable = ContextCompat.getDrawable(itemView.getContext(), R.drawable.shape_rounded_rectangle_white);

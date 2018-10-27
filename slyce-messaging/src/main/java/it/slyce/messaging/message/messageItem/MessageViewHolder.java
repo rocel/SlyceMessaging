@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import it.slyce.messaging.utils.CustomSettings;
 
 /**
@@ -14,6 +15,7 @@ import it.slyce.messaging.utils.CustomSettings;
 public class MessageViewHolder extends RecyclerView.ViewHolder {
     public ImageView avatar;
     public TextView initials;
+    public CircleImageView initialsBackground;
     public TextView timestamp;
     public ViewGroup avatarContainer;
     public CustomSettings customSettings;

@@ -8,6 +8,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -156,7 +157,11 @@ public class MainActivity extends AppCompatActivity {
                 textMessage.setUserId("LP");
                 textMessage.setInitials("LP");
                 textMessage.setDate(new Date().getTime());
-                textMessage.setSource(MessageSource.EXTERNAL_USER);
+                if(Math.random() > 0.5) {
+                    textMessage.setSource(MessageSource.EXTERNAL_USER);
+                } else {
+                    textMessage.setSource(MessageSource.LOCAL_USER);
+                }
                 slyceMessagingFragment.addNewMessage(textMessage);
             }
         }, 3, 3, TimeUnit.SECONDS);

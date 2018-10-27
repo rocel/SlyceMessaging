@@ -159,6 +159,8 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
         this.customSettings.snackbarBackground = ta.getColor(R.styleable.SlyceMessagingTheme_snackbarBackground, Color.WHITE);
         this.customSettings.snackbarButtonColor = ta.getColor(R.styleable.SlyceMessagingTheme_snackbarButtonColor, Color.WHITE);
         this.customSettings.snackbarTitleColor = ta.getColor(R.styleable.SlyceMessagingTheme_snackbarTitleColor, Color.WHITE);
+        this.customSettings.externalInitialBackgroundColor = ta.getColor(R.styleable.SlyceMessagingTheme_externalInitialBackground, Color.WHITE);
+        this.customSettings.localInitialBackgroundColor = ta.getColor(R.styleable.SlyceMessagingTheme_localInitialBackground, Color.WHITE);
     }
 
     public void addNewMessages(List<Message> messages) {

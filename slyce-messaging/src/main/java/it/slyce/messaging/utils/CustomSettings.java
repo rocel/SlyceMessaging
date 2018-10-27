@@ -11,8 +11,10 @@ public class CustomSettings {
     public int timestampColor;
     public int localBubbleBackgroundColor;
     public int localBubbleTextColor;
+    public int localInitialBackgroundColor;
     public int externalBubbleBackgroundColor;
     public int externalBubbleTextColor;
+    public int externalInitialBackgroundColor;
     public int snackbarBackground;
     public int snackbarTitleColor;
     public int snackbarButtonColor;
