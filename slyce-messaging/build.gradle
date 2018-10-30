@@ -80,7 +80,7 @@ dependencies {
     // Design
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion"
     compile "com.android.support:design:$rootProject.ext.supportLibVersion"
-    compile "com.android.support:percent:$rootProject.ext.supportLibVersion"
+    //compile "com.android.support:percent:$rootProject.ext.supportLibVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion"
     compile "com.android.support:support-v13:$rootProject.ext.supportLibVersion"
 
