@@ -13,8 +13,6 @@ import it.slyce.messaging.utils.CustomSettings;
  * Created by John C. Hunchar on 5/12/16.
  */
 public class MessageViewHolder extends RecyclerView.ViewHolder {
-    public ImageView avatar;
-    public TextView initials;
     public CircleImageView initialsBackground;
     public TextView timestamp;
     public ViewGroup avatarContainer;

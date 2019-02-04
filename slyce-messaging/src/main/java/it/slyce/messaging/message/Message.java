@@ -13,8 +13,6 @@ public abstract class Message {
     String avatarUrl;
     String displayName;
     String userId;
-    String initials;
-
     public long getDate() {
         return date;
     }
@@ -53,14 +51,6 @@ public abstract class Message {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getInitials() {
-        return initials;
-    }
-
-    public void setInitials(String initials) {
-        this.initials = initials;
     }
 
     public abstract MessageItem toMessageItem(Context context);

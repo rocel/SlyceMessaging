@@ -18,10 +18,7 @@ public class MessageInternalUserViewHolder extends MessageMediaViewHolder {
     public MessageInternalUserViewHolder(View itemView, CustomSettings customSettings) {
         super(itemView, customSettings);
 
-        avatar = (ImageView) itemView.findViewById(R.id.message_user_media_image_view_avatar);
         media = (GlideRoundedImageView) itemView.findViewById(R.id.message_user_media_picasso_rounded_image_view_media);
-        initials = (TextView) itemView.findViewById(R.id.message_user_media_text_view_initials);
         timestamp = (TextView) itemView.findViewById(R.id.message_user_media_text_view_timestamp);
-        avatarContainer = (ViewGroup) itemView.findViewById(R.id.message_user_media_view_group_avatar);
     }
 }

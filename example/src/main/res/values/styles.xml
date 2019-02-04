@@ -17,9 +17,5 @@
         <item name="snackbarBackground">@color/background_gray_darkest</item>
         <item name="snackbarTitleColor">@color/text_black</item>
         <item name="snackbarButtonColor">@color/text_blue</item>
-
-        <item name="localInitialBackground">#00FF00</item>
-        <item name="externalInitialBackground">#FF0000</item>
-
     </style>
 </resources>

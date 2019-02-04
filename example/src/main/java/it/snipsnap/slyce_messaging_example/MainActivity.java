@@ -155,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
                 //textMessage.setAvatarUrl("https://lh3.googleusercontent.com/-Y86IN-vEObo/AAAAAAAAAAI/AAAAAAAKyAM/6bec6LqLXXA/s0-c-k-no-ns/photo.jpg");
                 textMessage.setDisplayName("Gary Johnson");
                 textMessage.setUserId("LP");
-                textMessage.setInitials("LP");
                 textMessage.setDate(new Date().getTime());
                 if(Math.random() > 0.5) {
                     textMessage.setSource(MessageSource.EXTERNAL_USER);

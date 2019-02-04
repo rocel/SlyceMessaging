@@ -24,20 +24,10 @@ public class MessageExternalUserTextViewHolder extends MessageTextViewHolder {
     public MessageExternalUserTextViewHolder(View itemView, final CustomSettings customSettings) {
         super(itemView, customSettings);
 
-        avatar = (ImageView) itemView.findViewById(R.id.message_scout_text_image_view_avatar);
         carrot = (ImageView) itemView.findViewById(R.id.message_scout_text_image_view_carrot);
         text = (TextView) itemView.findViewById(R.id.message_scout_text_text_view_text);
         timestamp = (TextView) itemView.findViewById(R.id.message_scout_text_text_view_timestamp);
-        avatarContainer = (ViewGroup) itemView.findViewById(R.id.message_scout_text_image_view_avatar_group);
         bubble = (FrameLayout) itemView.findViewById(R.id.message_scout_text_view_group_bubble);
-
-        initials = (TextView) itemView.findViewById(R.id.message_scout_text_text_view_initials);
-        initialsBackground = (CircleImageView) itemView.findViewById(R.id.message_scout_text_image_view_avatar);
-
-        if(customSettings.localBubbleBackgroundColor != 0) {
-            ShapeDrawable circle = ShapeUtils.getCircle(itemView.getContext(), customSettings.localInitialBackgroundColor);
-            avatarContainer.setBackground(circle);
-        }
 
         Drawable drawable = ContextCompat.getDrawable(itemView.getContext(), R.drawable.shape_rounded_rectangle_white);
         // Drawable drawable = itemView.getContext().getDrawable();
